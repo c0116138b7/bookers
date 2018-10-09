@@ -1,0 +1,24 @@
+<h1>Books</h1>
+<div class="main">
+<tr><th>title</th><th>body</th><th></th></tr>
+<% @blogs.each do |blog| %>
+	<tr>
+		<td><%= blog.title %></td>
+		<td><%= blog.body %></td>
+		<td><%= link_to "Show", blog_path(@blog) %>
+			<%= link_to "Edit", edit_blog_path(@blog) %>
+			<%= link_to "Destroy", blog_path(@blog), method: :delete %></td>
+	</tr>
+	<% end %>
+
+	<h2>New Book</h2>
+
+	<%= form_for(@blog) do |f| %>
+	<h4>title</h4>
+	<%= f.text_field :title %>
+	<h4>Body</h4>
+	<%= f.text_area :body %>
+
+	<%= f.submit 'creat Book' %>
+	<% end %>
+</div>
